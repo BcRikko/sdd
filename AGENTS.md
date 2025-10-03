@@ -1,136 +1,136 @@
-# AI Agents Configuration
+# AIエージェント設定
 
-This document describes how AI agents should interact with this repository following the [agents.md](https://agents.md/) specification.
+このドキュメントは、[agents.md](https://agents.md/)仕様に従って、AIエージェントがこのリポジトリとどのように対話すべきかを説明しています。
 
-## Project Information
+## プロジェクト情報
 
-- **Name**: SDD - Spec-Driven Development
-- **Type**: CLI Application
-- **Language**: JavaScript (Node.js)
-- **Testing Framework**: Jest
-- **Methodology**: Spec-Driven Development (SDD)
+- **名前**: SDD - 仕様駆動開発
+- **タイプ**: CLIアプリケーション
+- **言語**: JavaScript (Node.js)
+- **テストフレームワーク**: Jest
+- **方法論**: 仕様駆動開発（SDD）
 
-## Agent Capabilities
+## エージェントの機能
 
-AI agents working on this project should be capable of:
+このプロジェクトで作業するAIエージェントは、以下の能力を持っている必要があります：
 
-- 📝 Writing and executing tests using Jest
-- 💻 Implementing JavaScript code following ES6+ standards
-- 🔄 Following the Red-Green-Refactor TDD cycle
-- 📚 Reading and updating documentation
-- 🏗️ Running build and test commands
+- 📝 Jestを使用したテストの作成と実行
+- 💻 ES6+標準に従ったJavaScriptコードの実装
+- 🔄 Red-Green-RefactorのTDDサイクルに従う
+- 📚 ドキュメントの読み取りと更新
+- 🏗️ ビルドおよびテストコマンドの実行
 
-## Development Workflow
+## 開発ワークフロー
 
-### Core Principles
+### 基本原則
 
-1. **Test-First Development**: Always write specifications (tests) before implementation
-2. **Minimal Changes**: Make the smallest changes necessary to achieve the goal
-3. **Red-Green-Refactor**: Follow the TDD cycle strictly
-4. **All Tests Pass**: Ensure all tests pass before committing changes
+1. **テストファースト開発**: 常に実装前に仕様（テスト）を書く
+2. **最小限の変更**: 目標を達成するために必要な最小限の変更を行う
+3. **Red-Green-Refactor**: TDDサイクルを厳密に守る
+4. **すべてのテストが合格**: 変更をコミットする前にすべてのテストが合格することを確認する
 
-### Standard Workflow
+### 標準ワークフロー
 
 ```
-1. Understand → Read issue/requirement
-2. Specify → Write test in __tests__/
-3. Red → Run `npm test` to see test fail
-4. Implement → Write minimal code in src/
-5. Green → Run `npm test` to see test pass
-6. Refactor → Improve code while keeping tests green
-7. Document → Update README.md if needed
+1. 理解 → 課題/要件を読む
+2. 仕様化 → __tests__/でテストを書く
+3. Red → `npm test`を実行してテストが失敗することを確認
+4. 実装 → src/に最小限のコードを書く
+5. Green → `npm test`を実行してテストが成功することを確認
+6. リファクタリング → テストをグリーンに保ちながらコードを改善
+7. ドキュメント化 → 必要に応じてREADME.mdを更新
 ```
 
-## Project Structure
+## プロジェクト構造
 
 ```
 sdd/
-├── __tests__/           # Test specifications (write tests here first)
-│   └── cli.spec.js      # CLI test specifications
-├── bin/                 # Executable scripts
-│   └── cli.js           # CLI entry point
-├── src/                 # Source code (implement after tests)
-│   └── cli.js           # CLI implementation
-├── .github/             # GitHub and AI agent configuration
+├── __tests__/           # テスト仕様（最初にここにテストを書く）
+│   └── cli.spec.js      # CLIテスト仕様
+├── bin/                 # 実行可能スクリプト
+│   └── cli.js           # CLIエントリーポイント
+├── src/                 # ソースコード（テスト後に実装）
+│   └── cli.js           # CLI実装
+├── .github/             # GitHubおよびAIエージェント設定
 │   ├── copilot-instructions.md
 │   ├── claude-config.json
 │   ├── agent-workflow.md
 │   └── README.md
-├── .clauderc            # Claude Code configuration
-├── AGENTS.md            # This file - AI agents specification
-├── README.md            # Project documentation
-└── package.json         # Project configuration
+├── .clauderc            # Claude Code設定
+├── AGENTS.md            # このファイル - AIエージェント仕様
+├── README.md            # プロジェクトドキュメント
+└── package.json         # プロジェクト設定
 ```
 
-## Commands
+## コマンド
 
-### Testing
+### テスト
 ```bash
-npm test                 # Run all tests once
-npm run test:watch       # Run tests in watch mode (for development)
+npm test                 # すべてのテストを一度実行
+npm run test:watch       # ウォッチモードでテストを実行（開発時）
 ```
 
-### Running the CLI
+### CLIの実行
 ```bash
-node bin/cli.js          # Run CLI directly
-node bin/cli.js --help   # Show help
-node bin/cli.js --version # Show version
-node bin/cli.js --greet <name> # Greet someone
+node bin/cli.js          # CLIを直接実行
+node bin/cli.js --help   # ヘルプを表示
+node bin/cli.js --version # バージョンを表示
+node bin/cli.js --greet <name> # 誰かに挨拶
 ```
 
-### Installation
+### インストール
 ```bash
-npm install              # Install dependencies
-npm link                 # Install globally as 'sdd' command
+npm install              # 依存関係をインストール
+npm link                 # 'sdd'コマンドとしてグローバルにインストール
 ```
 
-## Agent Guidelines
+## エージェントガイドライン
 
-### When Adding New Features
+### 新機能を追加する場合
 
-1. **Read the requirement carefully** - Understand what needs to be implemented
-2. **Write the test first** - Add test case(s) to `__tests__/cli.spec.js`
-3. **Verify test fails** - Run `npm test` to confirm red state
-4. **Implement minimal code** - Add code to `src/cli.js` to pass the test
-5. **Verify test passes** - Run `npm test` to confirm green state
-6. **Refactor if needed** - Improve code while keeping tests green
-7. **Update documentation** - Update `README.md` if adding new commands
+1. **要件を注意深く読む** - 何を実装する必要があるかを理解する
+2. **最初にテストを書く** - `__tests__/cli.spec.js`にテストケースを追加
+3. **テストが失敗することを確認** - `npm test`を実行してred状態を確認
+4. **最小限のコードを実装** - `src/cli.js`にテストを通すためのコードを追加
+5. **テストが成功することを確認** - `npm test`を実行してgreen状態を確認
+6. **必要に応じてリファクタリング** - テストをグリーンに保ちながらコードを改善
+7. **ドキュメントを更新** - 新しいコマンドを追加する場合は`README.md`を更新
 
-### When Fixing Bugs
+### バグを修正する場合
 
-1. **Reproduce the bug** - Write a test that demonstrates the issue
-2. **Verify failure** - Confirm the test fails with `npm test`
-3. **Fix the issue** - Modify code in `src/cli.js`
-4. **Verify fix** - Confirm all tests pass with `npm test`
+1. **バグを再現** - 問題を示すテストを書く
+2. **失敗を確認** - `npm test`でテストが失敗することを確認
+3. **問題を修正** - `src/cli.js`のコードを修正
+4. **修正を確認** - `npm test`ですべてのテストが合格することを確認
 
-### When Refactoring
+### リファクタリングする場合
 
-1. **Ensure green state** - Run `npm test` to confirm all tests pass
-2. **Make incremental changes** - Refactor in small steps
-3. **Test after each change** - Run `npm test` frequently
-4. **Maintain green state** - Never commit with failing tests
+1. **green状態を確認** - `npm test`を実行してすべてのテストが合格することを確認
+2. **段階的に変更** - 小さなステップでリファクタリング
+3. **各変更後にテスト** - `npm test`を頻繁に実行
+4. **green状態を維持** - 失敗するテストがある状態でコミットしない
 
-## Code Style
+## コードスタイル
 
-- Use `const` and `let` instead of `var`
-- Use arrow functions where appropriate
-- Follow existing code patterns in the repository
-- Keep functions small and focused (single responsibility)
-- Use meaningful variable and function names
-- Add comments only when necessary for clarity
+- `var`の代わりに`const`と`let`を使用
+- 適切な場面でアロー関数を使用
+- リポジトリ内の既存のコードパターンに従う
+- 関数を小さく焦点を絞る（単一責任）
+- 意味のある変数名と関数名を使用
+- 明確性のために必要な場合にのみコメントを追加
 
-## Testing Patterns
+## テストパターン
 
-### Adding a New CLI Option
+### 新しいCLIオプションの追加
 
 ```javascript
-// 1. Add test in __tests__/cli.spec.js
+// 1. __tests__/cli.spec.jsにテストを追加
 test('should handle --newopt flag', () => {
   const output = execSync(`node ${cliPath} --newopt value`).toString();
   expect(output).toContain('Expected output');
 });
 
-// 2. Implement in src/cli.js
+// 2. src/cli.jsに実装
 case '--newopt':
   if (args[1]) {
     handleNewOption(args[1]);
@@ -140,86 +140,86 @@ case '--newopt':
   }
   break;
 
-// 3. Add function
+// 3. 関数を追加
 function handleNewOption(value) {
   console.log(`Processing: ${value}`);
 }
 
-// 4. Export if needed
+// 4. 必要に応じてエクスポート
 module.exports = { run, handleNewOption, /* ... */ };
 ```
 
-## Success Criteria
+## 成功基準
 
-Before considering any task complete, ensure:
+タスクを完了とみなす前に、以下を確認してください：
 
-- ✅ All tests pass (`npm test` exits with code 0)
-- ✅ Code follows existing patterns and style
-- ✅ Changes are minimal and focused
-- ✅ Documentation is updated (if applicable)
-- ✅ No breaking changes to existing functionality
-- ✅ No unnecessary dependencies added
+- ✅ すべてのテストが合格（`npm test`がコード0で終了）
+- ✅ コードが既存のパターンとスタイルに従っている
+- ✅ 変更が最小限で焦点を絞っている
+- ✅ ドキュメントが更新されている（該当する場合）
+- ✅ 既存機能に破壊的な変更がない
+- ✅ 不要な依存関係が追加されていない
 
-## Anti-Patterns to Avoid
+## 避けるべきアンチパターン
 
-- ❌ Implementing code before writing tests
-- ❌ Skipping test runs during development
-- ❌ Making large, sweeping changes
-- ❌ Breaking existing functionality
-- ❌ Adding dependencies without justification
-- ❌ Committing with failing tests
-- ❌ Ignoring existing code patterns
+- ❌ テストを書く前にコードを実装する
+- ❌ 開発中にテスト実行をスキップする
+- ❌ 大規模で広範囲な変更を行う
+- ❌ 既存機能を壊す
+- ❌ 正当な理由なく依存関係を追加する
+- ❌ 失敗するテストがある状態でコミットする
+- ❌ 既存のコードパターンを無視する
 
-## Context Files
+## コンテキストファイル
 
-For detailed information, agents should reference:
+詳細情報については、エージェントは以下を参照してください：
 
-- **`.github/copilot-instructions.md`** - GitHub Copilot specific instructions
-- **`.github/agent-workflow.md`** - Detailed agent workflow guide
-- **`.github/claude-config.json`** - Claude Code JSON configuration
-- **`.clauderc`** - Root-level Claude configuration
-- **`README.md`** - Main project documentation
+- **`.github/copilot-instructions.md`** - GitHub Copilot固有の指示
+- **`.github/agent-workflow.md`** - 詳細なエージェントワークフローガイド
+- **`.github/claude-config.json`** - Claude Code JSON設定
+- **`.clauderc`** - ルートレベルのClaude設定
+- **`README.md`** - メインプロジェクトドキュメント
 
-## Agent Types
+## エージェントタイプ
 
-This repository is configured for multiple AI agent types:
+このリポジトリは、複数のAIエージェントタイプ向けに設定されています：
 
-- **GitHub Copilot** - Code completion and suggestions
-- **Claude Code** - Agentic coding and autonomous development
-- **Custom Agents** - Any agent following the agents.md specification
+- **GitHub Copilot** - コード補完と提案
+- **Claude Code** - エージェントコーディングと自律開発
+- **カスタムエージェント** - agents.md仕様に従う任意のエージェント
 
-## Communication
+## コミュニケーション
 
-When working on issues or pull requests:
+イシューやプルリクエストで作業する場合：
 
-1. **Understand the requirement** - Read issue descriptions carefully
-2. **Plan before implementing** - Outline changes before writing code
-3. **Report progress** - Update PR descriptions with progress checklists
-4. **Explain changes** - Provide clear commit messages
-5. **Respond to feedback** - Address review comments promptly
+1. **要件を理解する** - イシューの説明を注意深く読む
+2. **実装前に計画する** - コードを書く前に変更の概要を示す
+3. **進捗を報告する** - PRの説明を進捗チェックリストで更新
+4. **変更を説明する** - 明確なコミットメッセージを提供
+5. **フィードバックに応答する** - レビューコメントに迅速に対処
 
-## Limitations
+## 制限事項
 
-Agents should be aware of:
+エージェントは以下を認識しておく必要があります：
 
-- This is a learning/demonstration project focused on SDD principles
-- The CLI is intentionally simple to clearly demonstrate the methodology
-- New features should align with the educational purpose
-- Maintain simplicity - don't over-engineer solutions
+- これはSDD原則に焦点を当てた学習/デモンストレーションプロジェクトです
+- CLIは方法論を明確に示すために意図的にシンプルにしています
+- 新機能は教育目的に沿ったものにする必要があります
+- シンプルさを維持 - ソリューションを過度に設計しない
 
-## Resources
+## リソース
 
-- [Spec-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) - TDD/SDD methodology
-- [Jest Documentation](https://jestjs.io/) - Testing framework
-- [Node.js CLI Documentation](https://nodejs.org/api/cli.html) - CLI development
-- [agents.md](https://agents.md/) - AI agents specification
+- [仕様駆動開発](https://en.wikipedia.org/wiki/Test-driven_development) - TDD/SDD方法論
+- [Jestドキュメント](https://jestjs.io/) - テストフレームワーク
+- [Node.js CLIドキュメント](https://nodejs.org/api/cli.html) - CLI開発
+- [agents.md](https://agents.md/) - AIエージェント仕様
 
-## Version
+## バージョン
 
-- **Spec Version**: 1.0.0
-- **Last Updated**: 2024
-- **Maintained By**: Project contributors
+- **仕様バージョン**: 1.0.0
+- **最終更新**: 2024
+- **メンテナンス**: プロジェクト貢献者
 
 ---
 
-*This file follows the [agents.md](https://agents.md/) specification for AI agent interaction with repositories.*
+*このファイルは、リポジトリとのAIエージェント対話のための[agents.md](https://agents.md/)仕様に従っています。*

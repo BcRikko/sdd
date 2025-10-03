@@ -1,82 +1,82 @@
-# AI Agent Configuration
+# AIエージェント設定
 
-This directory contains configuration files for AI-assisted development tools like GitHub Copilot and Claude Code.
+このディレクトリには、GitHub CopilotやClaude CodeなどのAI支援開発ツール用の設定ファイルが含まれています。
 
-## Files
+## ファイル
 
 ### `copilot-instructions.md`
-Provides context and instructions for GitHub Copilot when working on this project. This file helps Copilot understand:
-- Project structure and organization
-- Development methodology (Spec-Driven Development)
-- Code style guidelines
-- Testing requirements
+このプロジェクトで作業する際のGitHub Copilot向けのコンテキストと指示を提供します。このファイルはCopilotが以下を理解するのに役立ちます：
+- プロジェクト構造と組織
+- 開発方法論（仕様駆動開発）
+- コードスタイルガイドライン
+- テスト要件
 
 ### `claude-config.json`
-JSON configuration for Claude Code that defines:
-- Project metadata
-- Development workflow
-- Testing commands
-- Guidelines and rules
+以下を定義するClaude Code用のJSON設定：
+- プロジェクトメタデータ
+- 開発ワークフロー
+- テストコマンド
+- ガイドラインとルール
 
 ### `agent-workflow.md`
-Detailed workflow guide for AI agents performing various tasks:
-- Exploring the project
-- Adding new features
-- Fixing bugs
-- Refactoring code
-- Common patterns and examples
+さまざまなタスクを実行するAIエージェント向けの詳細なワークフローガイド：
+- プロジェクトの探索
+- 新機能の追加
+- バグの修正
+- コードのリファクタリング
+- 一般的なパターンと例
 
-## Usage
+## 使用方法
 
-### For GitHub Copilot
-GitHub Copilot will automatically read `copilot-instructions.md` when providing suggestions in this repository.
+### GitHub Copilot向け
+GitHub Copilotは、このリポジトリで提案を提供する際に`copilot-instructions.md`を自動的に読み込みます。
 
-### For Claude Code
-Claude Code agents will use these configuration files to understand project context and follow the appropriate workflow.
+### Claude Code向け
+Claude Codeエージェントは、これらの設定ファイルを使用してプロジェクトコンテキストを理解し、適切なワークフローに従います。
 
-### For Developers
-These files serve as quick reference guides for:
-- Understanding project conventions
-- Following the SDD methodology
-- Maintaining consistent code quality
+### 開発者向け
+これらのファイルは以下のクイックリファレンスガイドとして機能します：
+- プロジェクトの規約を理解する
+- SDD方法論に従う
+- 一貫したコード品質を維持する
 
-## SDD Workflow Summary
+## SDDワークフローの概要
 
-1. **Write Tests First** - Define expected behavior in tests
-2. **See Tests Fail** - Run `npm test` and confirm red state
-3. **Implement Code** - Write minimal code to pass tests
-4. **See Tests Pass** - Run `npm test` and confirm green state
-5. **Refactor** - Improve code while keeping tests green
+1. **最初にテストを書く** - テストで期待される動作を定義
+2. **テストが失敗するのを確認** - `npm test`を実行してred状態を確認
+3. **コードを実装** - テストを通すための最小限のコードを書く
+4. **テストが成功するのを確認** - `npm test`を実行してgreen状態を確認
+5. **リファクタリング** - テストをグリーンに保ちながらコードを改善
 
-## Quick Commands
+## クイックコマンド
 
 ```bash
-# Run all tests
+# すべてのテストを実行
 npm test
 
-# Run tests in watch mode (during development)
+# ウォッチモードでテストを実行（開発時）
 npm run test:watch
 
-# Run the CLI
+# CLIを実行
 node bin/cli.js [options]
 
-# Install dependencies
+# 依存関係をインストール
 npm install
 ```
 
-## Project Context
+## プロジェクトコンテキスト
 
-This project demonstrates Spec-Driven Development (SDD), a methodology similar to TDD where:
-- Specifications (tests) are written before implementation
-- All code changes are driven by test requirements
-- Tests serve as living documentation
-- The Red-Green-Refactor cycle is strictly followed
+このプロジェクトは仕様駆動開発（SDD）を実証しています。これはTDDに似た方法論で、以下の特徴があります：
+- 仕様（テスト）を実装前に書く
+- すべてのコード変更はテスト要件によって駆動される
+- テストは生きたドキュメントとして機能する
+- Red-Green-Refactorサイクルを厳密に守る
 
-## Contributing
+## 貢献
 
-When working on this project:
-1. Always read and follow `agent-workflow.md`
-2. Write tests before implementation
-3. Run tests frequently
-4. Keep changes minimal and focused
-5. Update documentation as needed
+このプロジェクトで作業する場合：
+1. 常に`agent-workflow.md`を読んで従う
+2. 実装前にテストを書く
+3. テストを頻繁に実行
+4. 変更を最小限で焦点を絞る
+5. 必要に応じてドキュメントを更新

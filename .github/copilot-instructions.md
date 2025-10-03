@@ -1,56 +1,56 @@
-# GitHub Copilot Instructions for SDD Project
+# SDDプロジェクト向けGitHub Copilot指示
 
-## Project Overview
-This is a Spec-Driven Development (SDD) CLI application demonstrating SDD principles in Node.js.
+## プロジェクト概要
+これはNode.jsで仕様駆動開発（SDD）の原則を実証するSDDのCLIアプリケーションです。
 
-## Development Approach
-This project follows **Spec-Driven Development (SDD)** methodology:
-1. Write specifications (tests) first in `__tests__/` directory
-2. Implement code to satisfy those specifications
-3. Ensure all specifications pass before considering the feature complete
+## 開発アプローチ
+このプロジェクトは**仕様駆動開発（SDD）**方法論に従います：
+1. 最初に`__tests__/`ディレクトリに仕様（テスト）を書く
+2. その仕様を満たすコードを実装する
+3. 機能を完成とみなす前に、すべての仕様が合格することを確認する
 
-## Code Style Guidelines
-- Use modern JavaScript (ES6+) features
-- Follow existing code patterns in the codebase
-- Write clear, descriptive test cases using Jest
-- Keep functions small and focused
-- Use meaningful variable and function names
+## コードスタイルガイドライン
+- モダンなJavaScript（ES6+）機能を使用
+- コードベース内の既存のコードパターンに従う
+- Jestを使用して明確で説明的なテストケースを書く
+- 関数を小さく焦点を絞る
+- 意味のある変数名と関数名を使用
 
-## Testing Requirements
-- All new features MUST have corresponding tests in `__tests__/` directory
-- Tests should be written BEFORE implementation
-- Run `npm test` to execute all tests
-- Run `npm run test:watch` during development
-- All tests must pass before committing
+## テスト要件
+- すべての新機能には`__tests__/`ディレクトリに対応するテストが必要
+- テストは実装前に書く必要がある
+- `npm test`を実行してすべてのテストを実行
+- 開発中は`npm run test:watch`を実行
+- コミット前にすべてのテストが合格する必要がある
 
-## Project Structure
+## プロジェクト構造
 ```
 sdd/
-├── __tests__/        # Jest test specifications (write tests here first)
-│   └── cli.spec.js   # CLI specifications
-├── bin/              # Executable scripts
-│   └── cli.js        # CLI entry point
-├── src/              # Source code (implement here after tests)
-│   └── cli.js        # CLI implementation
-└── package.json      # Project configuration
+├── __tests__/        # Jestテスト仕様（最初にここにテストを書く）
+│   └── cli.spec.js   # CLI仕様
+├── bin/              # 実行可能スクリプト
+│   └── cli.js        # CLIエントリーポイント
+├── src/              # ソースコード（テスト後にここに実装）
+│   └── cli.js        # CLI実装
+└── package.json      # プロジェクト設定
 ```
 
-## Workflow for New Features
-1. Create test specifications in `__tests__/`
-2. Run tests and confirm they fail (Red)
-3. Implement minimal code in `src/` to pass tests
-4. Run tests and confirm they pass (Green)
-5. Refactor if needed while keeping tests green
+## 新機能のワークフロー
+1. `__tests__/`にテスト仕様を作成
+2. テストを実行して失敗することを確認（Red）
+3. `src/`にテストを通すための最小限のコードを実装
+4. テストを実行して成功することを確認（Green）
+5. テストをグリーンに保ちながら必要に応じてリファクタリング
 
-## CLI Commands
-- `sdd` - Display welcome message
-- `sdd --help` or `sdd -h` - Show help information
-- `sdd --version` or `sdd -v` - Show version number
-- `sdd --greet <name>` - Greet someone by name
+## CLIコマンド
+- `sdd` - ウェルカムメッセージを表示
+- `sdd --help` または `sdd -h` - ヘルプ情報を表示
+- `sdd --version` または `sdd -v` - バージョン番号を表示
+- `sdd --greet <name>` - 誰かに挨拶する
 
-## Important Notes
-- This project uses Jest for testing
-- The CLI entry point is `bin/cli.js`
-- Main logic is in `src/cli.js`
-- Always follow the Red-Green-Refactor cycle
-- Write tests that are clear and demonstrate expected behavior
+## 重要な注意事項
+- このプロジェクトはテストにJestを使用
+- CLIエントリーポイントは`bin/cli.js`
+- メインロジックは`src/cli.js`にある
+- 常にRed-Green-Refactorサイクルに従う
+- 期待される動作を明確に示すテストを書く

@@ -1,131 +1,131 @@
-# SDD - Spec-Driven Development
+# SDD - 仕様駆動開発
 
-A small CLI application demonstrating Spec-Driven Development (SDD) principles in Node.js.
+Node.jsで仕様駆動開発（SDD）の原則を実証する小さなCLIアプリケーションです。
 
-## What is Spec-Driven Development?
+## 仕様駆動開発とは？
 
-Spec-Driven Development is a development approach where you:
-1. Write specifications (tests) first
-2. Implement code to satisfy those specifications
-3. Ensure all specifications pass before considering the feature complete
+仕様駆動開発は以下のような開発アプローチです：
+1. 最初に仕様（テスト）を書く
+2. その仕様を満たすコードを実装する
+3. 機能を完成とみなす前に、すべての仕様が合格することを確認する
 
-This project demonstrates SDD by writing Jest tests first, then implementing the CLI functionality.
+このプロジェクトは、最初にJestテストを書き、次にCLI機能を実装することでSDDを実証しています。
 
-## Installation
+## インストール
 
 ```bash
 npm install
 ```
 
-## Usage
+## 使い方
 
-Run the CLI directly:
+CLIを直接実行する：
 
 ```bash
 node bin/cli.js
 ```
 
-Or install globally and use the `sdd` command:
+またはグローバルにインストールして`sdd`コマンドを使用する：
 
 ```bash
 npm link
 sdd
 ```
 
-### Available Commands
+### 利用可能なコマンド
 
-- `sdd` - Display welcome message
-- `sdd --help` or `sdd -h` - Show help information
-- `sdd --version` or `sdd -v` - Show version number
-- `sdd --greet <name>` - Greet someone by name
+- `sdd` - ウェルカムメッセージを表示
+- `sdd --help` または `sdd -h` - ヘルプ情報を表示
+- `sdd --version` または `sdd -v` - バージョン番号を表示
+- `sdd --greet <name>` - 誰かに挨拶する
 
-### Examples
+### 使用例
 
 ```bash
-# Display welcome message
+# ウェルカムメッセージを表示
 node bin/cli.js
 
-# Show help
+# ヘルプを表示
 node bin/cli.js --help
 
-# Show version
+# バージョンを表示
 node bin/cli.js --version
 
-# Greet someone
+# 誰かに挨拶する
 node bin/cli.js --greet World
-# Output: Hello, World!
+# 出力: Hello, World!
 ```
 
-## Development
+## 開発
 
-### Running Tests
+### テストの実行
 
-This project follows SDD principles - tests are written first, then implementation.
+このプロジェクトはSDDの原則に従います - テストを最初に書き、次に実装します。
 
 ```bash
-# Run tests once
+# テストを一度実行
 npm test
 
-# Run tests in watch mode
+# ウォッチモードでテストを実行
 npm run test:watch
 ```
 
-### Project Structure
+### プロジェクト構造
 
 ```
 sdd/
-├── __tests__/        # Jest test specifications
-│   └── cli.spec.js   # CLI specifications
-├── bin/              # Executable scripts
-│   └── cli.js        # CLI entry point
-├── src/              # Source code
-│   └── cli.js        # CLI implementation
-└── package.json      # Project configuration
+├── __tests__/        # Jestテスト仕様
+│   └── cli.spec.js   # CLI仕様
+├── bin/              # 実行可能スクリプト
+│   └── cli.js        # CLIエントリーポイント
+├── src/              # ソースコード
+│   └── cli.js        # CLI実装
+└── package.json      # プロジェクト設定
 ```
 
-## SDD Workflow
+## SDDワークフロー
 
-1. **Write Specifications** - Define expected behavior in `__tests__/cli.spec.js`
-2. **Run Tests** - Watch tests fail (Red)
-3. **Implement Code** - Write minimal code in `src/cli.js` to pass tests
-4. **Run Tests** - Watch tests pass (Green)
-5. **Refactor** - Improve code while keeping tests green
+1. **仕様を書く** - `__tests__/cli.spec.js`で期待される動作を定義する
+2. **テストを実行** - テストが失敗するのを確認する（Red）
+3. **コードを実装** - `src/cli.js`にテストを通すための最小限のコードを書く
+4. **テストを実行** - テストが成功するのを確認する（Green）
+5. **リファクタリング** - テストをグリーンに保ちながらコードを改善する
 
-## AI-Assisted Development
+## AI支援開発
 
-This project is configured for AI-assisted development with Claude Code and GitHub Copilot.
+このプロジェクトは、Claude CodeとGitHub Copilotを使用したAI支援開発向けに設定されています。
 
-### Configuration Files
+### 設定ファイル
 
-- **`AGENTS.md`** - Main AI agents specification following [agents.md](https://agents.md/) standard
-- `.clauderc` - Claude Code configuration at the project root
-- `.github/copilot-instructions.md` - Instructions for GitHub Copilot
-- `.github/claude-config.json` - Detailed Claude Code configuration
-- `.github/agent-workflow.md` - Workflow guide for AI agents
-- `.github/README.md` - Overview of AI agent configuration
+- **`AGENTS.md`** - [agents.md](https://agents.md/)標準に従ったメインのAIエージェント仕様
+- `.clauderc` - プロジェクトルートのClaude Code設定
+- `.github/copilot-instructions.md` - GitHub Copilot向けの指示
+- `.github/claude-config.json` - 詳細なClaude Code設定
+- `.github/agent-workflow.md` - AIエージェント向けワークフローガイド
+- `.github/README.md` - AIエージェント設定の概要
 
-### Using with AI Agents
+### AIエージェントでの使用
 
-AI agents working on this repository should reference [`AGENTS.md`](AGENTS.md) for comprehensive guidelines on:
-- Project structure and workflow
-- Development methodology (SDD)
-- Testing patterns and commands
-- Code style and standards
-- Success criteria
+このリポジトリで作業するAIエージェントは、[`AGENTS.md`](AGENTS.md)を参照して以下の包括的なガイドラインを確認してください：
+- プロジェクト構造とワークフロー
+- 開発方法論（SDD）
+- テストパターンとコマンド
+- コードスタイルと基準
+- 成功基準
 
-### Using with Claude Code
+### Claude Codeでの使用
 
-When using Claude Code for agentic coding:
-1. Claude Code will automatically read `.clauderc` and `.github/` configuration files
-2. The agent will follow the SDD methodology defined in the configuration
-3. All code changes will be test-driven following the Red-Green-Refactor cycle
+エージェントコーディングにClaude Codeを使用する場合：
+1. Claude Codeは`.clauderc`と`.github/`設定ファイルを自動的に読み込みます
+2. エージェントは設定で定義されたSDD方法論に従います
+3. すべてのコード変更はRed-Green-Refactorサイクルに従ってテスト駆動で行われます
 
-### Using with GitHub Copilot
+### GitHub Copilotでの使用
 
-GitHub Copilot will use `.github/copilot-instructions.md` to provide context-aware suggestions that align with the SDD methodology.
+GitHub Copilotは`.github/copilot-instructions.md`を使用して、SDD方法論に沿ったコンテキスト対応の提案を提供します。
 
-For more details, see [`AGENTS.md`](AGENTS.md) and [`.github/README.md`](.github/README.md).
+詳細については、[`AGENTS.md`](AGENTS.md)および[`.github/README.md`](.github/README.md)を参照してください。
 
-## License
+## ライセンス
 
 ISC

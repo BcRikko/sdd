@@ -1,68 +1,68 @@
-# Agent Workflow for SDD Project
+# SDDプロジェクト向けエージェントワークフロー
 
-## Purpose
-This document provides guidance for AI agents working on this project.
+## 目的
+このドキュメントは、このプロジェクトで作業するAIエージェント向けのガイダンスを提供します。
 
-## Project Type
-CLI application using Node.js with Jest for testing
+## プロジェクトタイプ
+JestをテストフレームワークとしたNode.js使用のCLIアプリケーション
 
-## Core Principles
-1. **Test-Driven Development**: Always write tests before implementation
-2. **Minimal Changes**: Make the smallest changes necessary to pass tests
-3. **Red-Green-Refactor**: Follow the TDD cycle strictly
+## 基本原則
+1. **テスト駆動開発**: 常に実装前にテストを書く
+2. **最小限の変更**: テストを通すために必要な最小限の変更を行う
+3. **Red-Green-Refactor**: TDDサイクルを厳密に守る
 
-## Agent Tasks
+## エージェントタスク
 
-### Task 1: Exploring the Project
-- Read `README.md` to understand the project
-- Review existing tests in `__tests__/cli.spec.js`
-- Review existing implementation in `src/cli.js`
-- Run `npm test` to see current test status
+### タスク1: プロジェクトの探索
+- `README.md`を読んでプロジェクトを理解する
+- `__tests__/cli.spec.js`の既存のテストを確認する
+- `src/cli.js`の既存の実装を確認する
+- `npm test`を実行して現在のテスト状態を確認する
 
-### Task 2: Adding New Features
-1. **Understand the requirement** - Read the issue/request carefully
-2. **Write the test** - Add test cases in `__tests__/cli.spec.js`
-3. **Run tests** - Verify the new test fails with `npm test`
-4. **Implement** - Add minimal code in `src/cli.js` to pass the test
-5. **Verify** - Run `npm test` again to confirm all tests pass
-6. **Document** - Update README.md if adding new commands
+### タスク2: 新機能の追加
+1. **要件を理解する** - イシュー/リクエストを注意深く読む
+2. **テストを書く** - `__tests__/cli.spec.js`にテストケースを追加
+3. **テストを実行** - `npm test`で新しいテストが失敗することを確認
+4. **実装** - `src/cli.js`にテストを通すための最小限のコードを追加
+5. **確認** - `npm test`を再度実行してすべてのテストが合格することを確認
+6. **ドキュメント化** - 新しいコマンドを追加する場合はREADME.mdを更新
 
-### Task 3: Fixing Bugs
-1. **Reproduce** - Write a test that demonstrates the bug
-2. **Verify failure** - Run `npm test` to confirm the bug exists
-3. **Fix** - Modify code in `src/cli.js` to fix the issue
-4. **Verify** - Run `npm test` to confirm all tests pass
+### タスク3: バグの修正
+1. **再現** - バグを示すテストを書く
+2. **失敗を確認** - `npm test`を実行してバグが存在することを確認
+3. **修正** - `src/cli.js`のコードを修正して問題を解決
+4. **確認** - `npm test`を実行してすべてのテストが合格することを確認
 
-### Task 4: Refactoring
-1. **Ensure tests pass** - Run `npm test` first
-2. **Refactor** - Improve code structure/quality
-3. **Verify** - Run `npm test` after each change
-4. **Commit** - Only commit if all tests still pass
+### タスク4: リファクタリング
+1. **テストが合格することを確認** - 最初に`npm test`を実行
+2. **リファクタリング** - コード構造/品質を改善
+3. **確認** - 各変更後に`npm test`を実行
+4. **コミット** - すべてのテストがまだ合格している場合のみコミット
 
-## File Locations
-- **Tests**: `__tests__/cli.spec.js`
-- **Implementation**: `src/cli.js`
-- **Entry Point**: `bin/cli.js`
-- **Documentation**: `README.md`
+## ファイルの場所
+- **テスト**: `__tests__/cli.spec.js`
+- **実装**: `src/cli.js`
+- **エントリーポイント**: `bin/cli.js`
+- **ドキュメント**: `README.md`
 
-## Testing Commands
+## テストコマンド
 ```bash
-npm test              # Run all tests once
-npm run test:watch    # Run tests in watch mode
-node bin/cli.js       # Test the CLI manually
+npm test              # すべてのテストを一度実行
+npm run test:watch    # ウォッチモードでテストを実行
+node bin/cli.js       # CLIを手動でテスト
 ```
 
-## Code Quality Standards
-- Use `const` and `let` instead of `var`
-- Use arrow functions where appropriate
-- Add comments only when necessary for clarity
-- Follow existing code style and patterns
-- Keep functions focused on a single responsibility
+## コード品質基準
+- `var`の代わりに`const`と`let`を使用
+- 適切な場面でアロー関数を使用
+- 明確性のために必要な場合にのみコメントを追加
+- 既存のコードスタイルとパターンに従う
+- 関数を単一責任に焦点を絞る
 
-## Common Patterns
+## 一般的なパターン
 
-### Adding a new CLI option:
-1. Add test case in `__tests__/cli.spec.js`:
+### 新しいCLIオプションの追加:
+1. `__tests__/cli.spec.js`にテストケースを追加:
 ```javascript
 test('should do something with --option', () => {
   const output = execSync(`node ${cliPath} --option arg`).toString();
@@ -70,7 +70,7 @@ test('should do something with --option', () => {
 });
 ```
 
-2. Add case in `src/cli.js` switch statement:
+2. `src/cli.js`のswitch文にcaseを追加:
 ```javascript
 case '--option':
   if (args[1]) {
@@ -82,25 +82,25 @@ case '--option':
   break;
 ```
 
-3. Add function in `src/cli.js`:
+3. `src/cli.js`に関数を追加:
 ```javascript
 function doSomething(arg) {
   console.log(`Result: ${arg}`);
 }
 ```
 
-4. Export function and update help text if needed
+4. 関数をエクスポートし、必要に応じてヘルプテキストを更新
 
-## Success Criteria
-- ✅ All tests pass (`npm test` returns 0)
-- ✅ Code follows existing patterns
-- ✅ Changes are minimal and focused
-- ✅ Documentation is updated if needed
-- ✅ No unnecessary files are committed
+## 成功基準
+- ✅ すべてのテストが合格（`npm test`が0を返す）
+- ✅ コードが既存のパターンに従っている
+- ✅ 変更が最小限で焦点を絞っている
+- ✅ 必要に応じてドキュメントが更新されている
+- ✅ 不要なファイルがコミットされていない
 
-## Anti-Patterns to Avoid
-- ❌ Implementing before writing tests
-- ❌ Skipping test runs
-- ❌ Making changes outside the test-code cycle
-- ❌ Adding dependencies without justification
-- ❌ Breaking existing functionality
+## 避けるべきアンチパターン
+- ❌ テストを書く前に実装する
+- ❌ テスト実行をスキップする
+- ❌ テストコードサイクル外で変更を行う
+- ❌ 正当な理由なく依存関係を追加する
+- ❌ 既存機能を壊す
