@@ -1,0 +1,23 @@
+{
+  "name": "sdd",
+  "version": "1.0.0",
+  "description": "Spec-Driven Development",
+  "main": "index.js",
+  "bin": {
+    "sdd": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [
+    "sdd",
+    "spec-driven",
+    "cli"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
