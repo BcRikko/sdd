@@ -97,11 +97,21 @@ This project is configured for AI-assisted development with Claude Code and GitH
 
 ### Configuration Files
 
+- **`AGENTS.md`** - Main AI agents specification following [agents.md](https://agents.md/) standard
 - `.clauderc` - Claude Code configuration at the project root
 - `.github/copilot-instructions.md` - Instructions for GitHub Copilot
 - `.github/claude-config.json` - Detailed Claude Code configuration
 - `.github/agent-workflow.md` - Workflow guide for AI agents
 - `.github/README.md` - Overview of AI agent configuration
+
+### Using with AI Agents
+
+AI agents working on this repository should reference [`AGENTS.md`](AGENTS.md) for comprehensive guidelines on:
+- Project structure and workflow
+- Development methodology (SDD)
+- Testing patterns and commands
+- Code style and standards
+- Success criteria
 
 ### Using with Claude Code
 
@@ -114,7 +124,7 @@ When using Claude Code for agentic coding:
 
 GitHub Copilot will use `.github/copilot-instructions.md` to provide context-aware suggestions that align with the SDD methodology.
 
-For more details, see [`.github/README.md`](.github/README.md).
+For more details, see [`AGENTS.md`](AGENTS.md) and [`.github/README.md`](.github/README.md).
 
 ## License
 
