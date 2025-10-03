@@ -1,0 +1,28 @@
+{
+  "name": "SDD - Spec-Driven Development",
+  "description": "A CLI application demonstrating Spec-Driven Development principles",
+  "methodology": "spec-driven-development",
+  "instructions": [
+    "Always write tests before implementation",
+    "Follow the Red-Green-Refactor cycle",
+    "Run npm test frequently to verify changes",
+    "Keep changes minimal and focused",
+    "Follow existing code patterns",
+    "Update documentation when adding features"
+  ],
+  "context": {
+    "guidelines": ".github/copilot-instructions.md",
+    "workflow": ".github/agent-workflow.md",
+    "readme": "README.md"
+  },
+  "commands": {
+    "test": "npm test",
+    "testWatch": "npm run test:watch",
+    "runCli": "node bin/cli.js"
+  },
+  "rules": {
+    "testFirst": true,
+    "minimalChanges": true,
+    "allTestsMustPass": true
+  }
+}

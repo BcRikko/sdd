@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "SDD Project Configuration",
+  "description": "Configuration for Claude Code agentic coding in the SDD project",
+  "project": {
+    "name": "SDD - Spec-Driven Development",
+    "type": "cli",
+    "language": "javascript",
+    "framework": "node",
+    "testFramework": "jest"
+  },
+  "development": {
+    "methodology": "spec-driven-development",
+    "workflow": [
+      "Write specifications (tests) first",
+      "Run tests to see them fail (Red)",
+      "Implement minimal code to pass tests",
+      "Run tests to see them pass (Green)",
+      "Refactor while keeping tests green"
+    ],
+    "testFirst": true,
+    "testDirectory": "__tests__",
+    "sourceDirectory": "src"
+  },
+  "commands": {
+    "test": "npm test",
+    "testWatch": "npm run test:watch",
+    "cli": "node bin/cli.js"
+  },
+  "guidelines": {
+    "alwaysWriteTestsFirst": true,
+    "allTestsMustPass": true,
+    "followExistingPatterns": true,
+    "useModernJavaScript": true,
+    "keepFunctionsSmall": true
+  }
+}
