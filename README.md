@@ -91,6 +91,41 @@ sdd/
 4. **Run Tests** - Watch tests pass (Green)
 5. **Refactor** - Improve code while keeping tests green
 
+## AI-Assisted Development
+
+This project is configured for AI-assisted development with Claude Code and GitHub Copilot.
+
+### Configuration Files
+
+- **`AGENTS.md`** - Main AI agents specification following [agents.md](https://agents.md/) standard
+- `.clauderc` - Claude Code configuration at the project root
+- `.github/copilot-instructions.md` - Instructions for GitHub Copilot
+- `.github/claude-config.json` - Detailed Claude Code configuration
+- `.github/agent-workflow.md` - Workflow guide for AI agents
+- `.github/README.md` - Overview of AI agent configuration
+
+### Using with AI Agents
+
+AI agents working on this repository should reference [`AGENTS.md`](AGENTS.md) for comprehensive guidelines on:
+- Project structure and workflow
+- Development methodology (SDD)
+- Testing patterns and commands
+- Code style and standards
+- Success criteria
+
+### Using with Claude Code
+
+When using Claude Code for agentic coding:
+1. Claude Code will automatically read `.clauderc` and `.github/` configuration files
+2. The agent will follow the SDD methodology defined in the configuration
+3. All code changes will be test-driven following the Red-Green-Refactor cycle
+
+### Using with GitHub Copilot
+
+GitHub Copilot will use `.github/copilot-instructions.md` to provide context-aware suggestions that align with the SDD methodology.
+
+For more details, see [`AGENTS.md`](AGENTS.md) and [`.github/README.md`](.github/README.md).
+
 ## License
 
 ISC
